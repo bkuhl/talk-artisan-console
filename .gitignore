@@ -1,0 +1,4 @@
+laravel-console-demo/vendor
+laravel-console-demo/node_modules
+laravel-console-demo/public/storage
+laravel-console-demo/.env
