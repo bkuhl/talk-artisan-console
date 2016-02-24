@@ -8,11 +8,6 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-    /**
-     * The Artisan commands provided by your application.
-     *
-     * @var array
-     */
     protected $commands = [
         Commands\Ask::class,
         Commands\Confirm::class,
@@ -22,6 +17,7 @@ class Kernel extends ConsoleKernel
         Commands\Autocomplete::class,
         Commands\Choice::class,
         Commands\ProgressBar::class,
+        Commands\SendEmails::class,
     ];
 
     /**
@@ -32,7 +28,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-         $schedule->command(Text::class)
-                  ->hourly();
+         $schedule->command('emails:send --ignoreUnsubscribed')
+                  ->weekly();
     }
 }
